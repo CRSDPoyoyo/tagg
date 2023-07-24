@@ -1,0 +1,27 @@
+name: CI
+run-name: ${{ github.actor }} created a pull request
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version: '20.4.0'
+          
+      - name: Build project
+        run: |
+          yarn
+          yarn build
