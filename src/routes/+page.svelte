@@ -17,6 +17,7 @@
 			redirectTo={`${data.url}/auth/callback`}
 			showLinks={false}
 			appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
+			additionalData={{}}
 		/>
 	</div>
 </div>
