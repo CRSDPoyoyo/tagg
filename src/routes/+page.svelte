@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import NavigationBar from '$lib/NavigationBar.svelte';
+</script>
+
+<svelte:head>
+	<title>Tagg</title>
+</svelte:head>
+
+<div class="flex w-screen h-screen bg-surface-900 shadow-primary-900">
+	<div class="w-full">
+		<NavigationBar />
+		Homepage
+	</div>
+</div>
