@@ -1,23 +1,14 @@
 <script lang="ts">
-	import { Auth } from '@supabase/auth-ui-svelte';
-	import { ThemeSupa } from '@supabase/auth-ui-shared';
-
-	export let data;
+	import NavigationBar from '$lib/NavigationBar.svelte';
 </script>
 
 <svelte:head>
-	<title>User Management</title>
+	<title>Tagg</title>
 </svelte:head>
 
-<div class="row flex-center flex">
-	<div class="col-6 form-widget">
-		<Auth
-			supabaseClient={data.supabase}
-			view="magic_link"
-			redirectTo={`${data.url}/auth/callback`}
-			showLinks={false}
-			appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
-			additionalData={{}}
-		/>
+<div class="flex w-screen h-screen bg-surface-900 shadow-primary-900">
+	<div class="w-full">
+		<NavigationBar />
+		Homepage
 	</div>
 </div>
