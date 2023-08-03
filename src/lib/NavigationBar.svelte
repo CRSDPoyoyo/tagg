@@ -40,10 +40,12 @@
 			<div class="arrow bg-surface-100-800-token" />
 		</div>
 	</svelte:fragment>
-	<h1 class="h1">Tagg</h1>
+	<a href="/"><h1 class="h1">Tagg</h1></a>
 	<svelte:fragment slot="trail">
-		<button type="button" class="btn variant-ringed-primary">
-			<span>Login</span>
-		</button>
+		<a href="/login">
+			<button type="button" class="btn variant-ringed-primary">
+				<span>Login</span>
+			</button>
+		</a>
 	</svelte:fragment>
 </AppBar>
