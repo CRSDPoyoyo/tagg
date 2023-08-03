@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	// Your selected Skeleton theme:
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 
@@ -13,5 +13,9 @@
 
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 </script>
+
+<svelte:head>
+	<title>User Management</title>
+</svelte:head>
 
 <slot />
