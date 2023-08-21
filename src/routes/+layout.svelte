@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	// Your selected Skeleton theme:
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 
