@@ -1,21 +1,17 @@
 <script>
-	// Your selected Skeleton theme:
-	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-
-	// This contains the bulk of Skeletons required styles:
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-
-	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
 
-	import { storePopup } from '@skeletonlabs/skeleton';
+	import { AppShell, storePopup } from '@skeletonlabs/skeleton';
+	import NavigationBar from '$components/NavigationBar.svelte';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 </script>
 
-<svelte:head>
-	<title>User Management</title>
-</svelte:head>
+<AppShell slotHeader="bg-surface-800">
+	<svelte:fragment slot="header">
+		<NavigationBar />
+	</svelte:fragment>
 
-<slot />
+	<slot />
+</AppShell>

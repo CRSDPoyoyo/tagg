@@ -18,7 +18,6 @@
 	slotDefault="place-self-center"
 	slotTrail="place-content-end"
 	background="bg-transparent"
-	shadow="10px 5px 5px red;"
 >
 	<svelte:fragment slot="lead">
 		<button class="btn variant-ringed-primary" use:popup={popupCombobox}>
@@ -27,20 +26,22 @@
 
 		<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
 			<ListBox rounded="rounded-none">
-				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item one"
-					>Menu item one</ListBoxItem
-				>
-				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item twos"
-					>Menu item two</ListBoxItem
-				>
-				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item three"
-					>Menu item three</ListBoxItem
-				>
+				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item one">
+					Menu item one
+				</ListBoxItem>
+				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item twos">
+					Menu item two
+				</ListBoxItem>
+				<ListBoxItem bind:group={comboboxValue} name="medium" value="Menu item three">
+					Menu item three
+				</ListBoxItem>
 			</ListBox>
 			<div class="arrow bg-surface-100-800-token" />
 		</div>
 	</svelte:fragment>
+
 	<a href="/"><h1 class="h1">Tagg</h1></a>
+
 	<svelte:fragment slot="trail">
 		<a href="/login">
 			<button type="button" class="btn variant-ringed-primary">
