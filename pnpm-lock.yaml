@@ -11,6 +11,9 @@ dependencies:
   '@supabase/auth-helpers-sveltekit':
     specifier: ^0.10.2
     version: 0.10.2(@supabase/supabase-js@2.33.1)(@sveltejs/kit@1.24.0)
+  '@supabase/supabase-js':
+    specifier: ^2.33.1
+    version: 2.33.1
 
 devDependencies:
   '@commitlint/cli':
