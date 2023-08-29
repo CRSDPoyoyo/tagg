@@ -1,34 +1,17 @@
-<script lang="ts">
-	// Your selected Skeleton theme:
-	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-
-	// This contains the bulk of Skeletons required styles:
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-
-	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
+<script>
 	import '../app.postcss';
 
-	import { invalidate } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { AppShell, storePopup } from '@skeletonlabs/skeleton';
+	import NavigationBar from '$components/NavigationBar.svelte';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-	export let data;
-
-	let { supabase, session } = data;
-	$: ({ supabase, session } = data);
-
-	onMount(() => {
-		const { data } = supabase.auth.onAuthStateChange((event, _session) => {
-			if (_session?.expires_at !== session?.expires_at) {
-				invalidate('supabase:auth');
-			}
-		});
-
-		return () => data.subscription.unsubscribe();
-	});
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 </script>
 
-<svelte:head>
-	<title>User Management</title>
-</svelte:head>
+<AppShell slotHeader="bg-surface-800">
+	<svelte:fragment slot="header">
+		<NavigationBar />
+	</svelte:fragment>
 
-<slot />
+	<slot />
+</AppShell>

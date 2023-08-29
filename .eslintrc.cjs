@@ -6,16 +6,19 @@ module.exports = {
 		'plugin:svelte/recommended',
 		'prettier'
 	],
+	ignorePatterns: ['*.cjs', '*.js'],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
 	parserOptions: {
+		tsconfigRootDir: __dirname,
+		project: ['./tsconfig.eslint.json'],
 		sourceType: 'module',
 		ecmaVersion: 2020,
 		extraFileExtensions: ['.svelte']
 	},
 	env: {
+		es6: true,
 		browser: true,
-		es2017: true,
 		node: true
 	},
 	overrides: [
