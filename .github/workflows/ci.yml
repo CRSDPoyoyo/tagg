@@ -19,8 +19,12 @@ jobs:
           node-version: "20.4.0"
           cache: pnpm
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.0
+
       - name: Build project
         run: |
-          pnpm
+          pnpm install --frozen-lockfile
           pnpm check
           pnpm build
