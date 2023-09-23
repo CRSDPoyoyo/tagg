@@ -2,9 +2,6 @@ name: CI
 run-name: ${{ github.actor }} created a pull request
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -14,18 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.7.0
+        uses: actions/setup-node@v3
         with:
-          node-version: '20.4.0'
+          node-version: "20.4.0"
+          cache: pnpm
 
       - name: Build project
-        env:
-          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
-          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
         run: |
-          yarn
-          yarn check
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm check
+          pnpm build

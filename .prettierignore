@@ -1,11 +1,15 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
+.DS_Store/
+.git/
+.svelte-kit/
+build/
+node_modules/
+supabase/.branches
+supabase/.temp
 .env
 .env.*
 !.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

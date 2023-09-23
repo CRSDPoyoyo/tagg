@@ -3,5 +3,5 @@
 	"compilerOptions": {
 		"noEmit": true
 	},
-	"include": ["src/**/*.ts", "src/**/*.svelte", "tailwind.config.ts", "vite.config.ts"]
+	"include": ["src", ".eslintrc.cjs", "svelte.config.js", "tailwind.config.ts", "vite.config.ts"]
 }
