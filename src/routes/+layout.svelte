@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
 	import '../app.postcss';
 
-	import { AppShell, storePopup } from '@skeletonlabs/skeleton';
+	import { AppShell, prefersReducedMotionStore } from '@skeletonlabs/skeleton';
+
 	import NavigationBar from '$components/NavigationBar.svelte';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+	import { initializeUserContext } from '$lib/contexts/UserContext';
 
 	export let data;
 
@@ -19,16 +20,17 @@
 			}
 		});
 
-		return () => data.subscription.unsubscribe();
+		return () => {
+			data.subscription.unsubscribe();
+		};
 	});
 
-	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-	import { initializeUserContext } from '$lib/contexts/UserContext';
-
 	initializeUserContext(data.session?.user);
+
+	$: allyPageSmoothScroll = !$prefersReducedMotionStore ? 'scroll-smooth' : '';
 </script>
 
-<AppShell slotHeader="bg-surface-800">
+<AppShell slotHeader="bg-surface-800" regionPage={allyPageSmoothScroll}>
 	<svelte:fragment slot="header">
 		<NavigationBar auth={supabase.auth} user={data.session?.user} />
 	</svelte:fragment>
