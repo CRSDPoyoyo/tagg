@@ -17,10 +17,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20.4.0"
-          cache: yarn
+          cache: pnpm
 
       - name: Build project
         run: |
-          yarn
-          yarn check
-          yarn build
+          pnpm
+          pnpm check
+          pnpm build
