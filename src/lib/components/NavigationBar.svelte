@@ -13,23 +13,28 @@
 
 <AppBar padding="py-4 px-8">
 	<svelte:fragment slot="lead">
-		<Bookmark height={36} width={36} />
+		<a href="/"><Bookmark height={36} width={36} /></a>
 	</svelte:fragment>
 
-	<a href="/"><h1>Tagg</h1></a>
+	<h2 class="select-none">Tagg</h2>
 
 	<svelte:fragment slot="trail">
 		{#if user}
-			<button class="btn variant-ringed-primary" on:click={handleLogout}>
+			<button class="btn variant-filled-error" on:click={handleLogout}>
 				<span>Logout</span>
 			</button>
+			<div class="placeholder-circle w-10" />
 		{:else}
+			<a href="/register">
+				<button class="btn variant-filled-primary">
+					<span>Sign up</span>
+				</button>
+			</a>
 			<a href="/login">
-				<button class="btn variant-ringed-primary">
+				<button class="btn variant-filled-primary">
 					<span>Login</span>
 				</button>
 			</a>
 		{/if}
-		<div class="placeholder-circle w-12" />
 	</svelte:fragment>
 </AppBar>
